@@ -66,6 +66,10 @@ body::before {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+#codeEditor {
+    opacity: 0;
+}
+
 .stars-bg {
     position: absolute;
     top: 0;
