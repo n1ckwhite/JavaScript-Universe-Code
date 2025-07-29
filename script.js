@@ -10,12 +10,78 @@ class CodePlayground {
         this.autoRunTimeout = null;
         this.autoRunDelay = 1000; // 1 секунда задержки
         
-        this.initEditor();
+        this.initializeEditor();
         this.bindEvents();
         this.loadDefaultCode();
+        this.setupMobileOptimizations();
     }
 
-    initEditor() {
+    setupMobileOptimizations() {
+        // Предотвращение двойного касания для зума
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (event) => {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Оптимизация для мобильных устройств
+        if (window.innerWidth <= 768) {
+            this.setupMobileEditor();
+        }
+
+        // Обработка изменения ориентации
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                this.editor.refresh();
+            }, 100);
+        });
+
+        // Обработка изменения размера окна
+        window.addEventListener('resize', () => {
+            setTimeout(() => {
+                this.editor.refresh();
+            }, 100);
+        });
+    }
+
+    setupMobileEditor() {
+        // Уменьшаем задержку авто-запуска на мобильных
+        this.autoRunDelay = 1000;
+        
+        // Оптимизируем CodeMirror для мобильных
+        this.editor.setOption('lineWrapping', true);
+        this.editor.setOption('scrollbarStyle', 'native');
+        
+        // Улучшаем обработку касаний
+        this.editor.on('touchstart', () => {
+            // Предотвращаем конфликты с системными жестами
+        });
+
+        // Дополнительные оптимизации для очень маленьких экранов
+        if (window.innerWidth <= 480) {
+            this.setupTinyScreenOptimizations();
+        }
+    }
+
+    setupTinyScreenOptimizations() {
+        // Уменьшаем размеры шрифтов
+        this.editor.setOption('lineHeight', 1.1);
+        
+        // Уменьшаем отступы
+        const editorElement = this.editor.getWrapperElement();
+        editorElement.style.fontSize = '10px';
+        
+        // Оптимизируем для касаний
+        this.editor.setOption('cursorBlinkRate', 0); // Отключаем мигание курсора для экономии ресурсов
+        
+        // Уменьшаем задержку авто-запуска для быстрого отклика
+        this.autoRunDelay = 800;
+    }
+
+    initializeEditor() {
         const textarea = document.getElementById('codeEditor');
         
         this.editor = CodeMirror.fromTextArea(textarea, {
