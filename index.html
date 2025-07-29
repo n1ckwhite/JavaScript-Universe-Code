@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 JavaScript Universe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/lint/lint.css">
+</head>
+<body>
+    <div class="container">
+        <header class="cosmic-header">
+            <div class="stars-bg"></div>
+            <div class="header-content">
+                <div class="title-section">
+                    <div class="logo">
+                        <div class="planet"></div>
+                        <div class="orbit"></div>
+                        <div class="satellite"></div>
+                    </div>
+                    <h1>JavaScript Universe</h1>
+                </div>
+                <div class="controls">
+                    <!-- <div class="language-selector">
+                        <label>🌍 Язык:</label>
+                        <select id="languageSelect" class="cosmic-select">
+                            <option value="javascript">📜 JavaScript</option>
+                            <option value="typescript">📘 TypeScript</option>
+                        </select>
+                    </div> -->
+                    <div class="action-buttons">
+                        <button id="runBtn" class="cosmic-btn primary">
+                            <span class="btn-icon">🚀</span>
+                            <span class="btn-text">Запустить</span>
+                        </button>
+                        <button id="clearBtn" class="cosmic-btn secondary">
+                            <span class="btn-icon">🗑</span>
+                            <span class="btn-text">Очистить</span>
+                        </button>
+                    </div>
+                    <div class="auto-run-toggle">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoRunToggle" checked>
+                            <span class="slider"></span>
+                            <span class="toggle-label">🔄 Автозапуск</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="cosmic-main">
+            <div class="editor-section cosmic-panel">
+                <div class="panel-glow"></div>
+                <div class="editor-header">
+                    <h3>🌌 Редактор кода</h3>
+                </div>
+                <div class="editor-container">
+                    <textarea id="codeEditor"></textarea>
+                </div>
+            </div>
+            
+            <div class="output-section cosmic-panel">
+                <div class="panel-glow"></div>
+                <div class="output-header">
+                    <h3>🌟 Результат выполнения</h3>
+                    <button id="clearOutputBtn" class="cosmic-btn secondary">
+                        <span class="btn-icon">🗑</span>
+                        <span class="btn-text">Очистить</span>
+                    </button>
+                </div>
+                <div id="output" class="output-area">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/typescript/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/show-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/javascript-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/hint/anyword-hint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/lint/lint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/lint/javascript-lint.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/selection/active-line.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/trailingspace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/mode/simple.js"></script>
+    <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
